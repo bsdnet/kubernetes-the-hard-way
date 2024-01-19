@@ -12,8 +12,8 @@ Download and install `cfssl` and `cfssljson`:
 ### OS X
 
 ```
-curl -o cfssl https://storage.googleapis.com/kubernetes-the-hard-way/cfssl/1.4.1/darwin/cfssl
-curl -o cfssljson https://storage.googleapis.com/kubernetes-the-hard-way/cfssl/1.4.1/darwin/cfssljson
+curl -o cfssl https://github.com/cloudflare/cfssl/releases/download/v1.6.4/cfssl_1.6.4_linux_amd64
+curl -o cfssljson https://github.com/cloudflare/cfssl/releases/download/v1.6.4/cfssljson_1.6.4_linux_amd64
 ```
 
 ```
@@ -34,8 +34,8 @@ brew install cfssl
 
 ```
 wget -q --show-progress --https-only --timestamping \
-  https://storage.googleapis.com/kubernetes-the-hard-way/cfssl/1.4.1/linux/cfssl \
-  https://storage.googleapis.com/kubernetes-the-hard-way/cfssl/1.4.1/linux/cfssljson
+   https://github.com/cloudflare/cfssl/releases/download/v1.6.4/cfssl_1.6.4_linux_amd64 \
+   https://github.com/cloudflare/cfssl/releases/download/v1.6.4/cfssljson_1.6.4_linux_amd64
 ```
 
 ```
@@ -48,7 +48,7 @@ sudo mv cfssl cfssljson /usr/local/bin/
 
 ### Verification
 
-Verify `cfssl` and `cfssljson` version 1.4.1 or higher is installed:
+Verify `cfssl` and `cfssljson` version 1.6.4 or higher is installed:
 
 ```
 cfssl version
@@ -76,7 +76,7 @@ The `kubectl` command line utility is used to interact with the Kubernetes API S
 ### OS X
 
 ```
-curl -o kubectl https://storage.googleapis.com/kubernetes-release/release/v1.21.0/bin/darwin/amd64/kubectl
+curl -o kubectl https://storage.googleapis.com/kubernetes-release/release/v1.29.0/bin/darwin/amd64/kubectl
 ```
 
 ```
@@ -90,7 +90,7 @@ sudo mv kubectl /usr/local/bin/
 ### Linux
 
 ```
-wget https://storage.googleapis.com/kubernetes-release/release/v1.21.0/bin/linux/amd64/kubectl
+wget https://storage.googleapis.com/kubernetes-release/release/v1.29.0/bin/linux/amd64/kubectl
 ```
 
 ```
@@ -103,7 +103,7 @@ sudo mv kubectl /usr/local/bin/
 
 ### Verification
 
-Verify `kubectl` version 1.21.0 or higher is installed:
+Verify `kubectl` version 1.29.0 or higher is installed:
 
 ```
 kubectl version --client
