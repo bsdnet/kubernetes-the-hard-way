@@ -39,11 +39,19 @@ wget -q --show-progress --https-only --timestamping \
 ```
 
 ```
-chmod +x cfssl cfssljson
+chmod +x cfssl_1.6.4_linux_amd64 cfssljson_1.6.4_linux_amd64
 ```
 
 ```
-sudo mv cfssl cfssljson /usr/local/bin/
+sudo mv cfssl_1.6.4_linux_amd64 /usr/local/bin/cfssl
+sudo mv cfssljson_1.6.4_linux_amd64 /usr/local/bin/cfssljson
+```
+
+Or
+
+```
+curl -s -L -o cfssl https://github.com/cloudflare/cfssl/releases/download/v1.6.4/cfssl_1.6.4_linux_amd64
+curl -s -L -o cfssljson https://github.com/cloudflare/cfssl/releases/download/v1.6.4/cfssljson_1.6.4_linux_amd64
 ```
 
 ### Verification
@@ -57,16 +65,26 @@ cfssl version
 > output
 
 ```
-Version: 1.4.1
-Runtime: go1.12.12
+Version: 1.6.4
+Runtime: go1.18
 ```
 
 ```
 cfssljson --version
 ```
 ```
-Version: 1.4.1
-Runtime: go1.12.12
+Version: 1.6.4
+Runtime: go1.18
+```
+
+## Install OpenSSL
+
+```
+openssl version
+```
+
+```
+OpenSSL 3.0.10 1 Aug 2023 (Library: OpenSSL 3.0.10 1 Aug 2023)
 ```
 
 ## Install kubectl
@@ -76,7 +94,7 @@ The `kubectl` command line utility is used to interact with the Kubernetes API S
 ### OS X
 
 ```
-curl -o kubectl https://storage.googleapis.com/kubernetes-release/release/v1.29.0/bin/darwin/amd64/kubectl
+curl -o kubectl https://storage.googleapis.com/kubernetes-release/release/v1.29.1/bin/darwin/amd64/kubectl
 ```
 
 ```
@@ -90,7 +108,7 @@ sudo mv kubectl /usr/local/bin/
 ### Linux
 
 ```
-wget https://storage.googleapis.com/kubernetes-release/release/v1.29.0/bin/linux/amd64/kubectl
+gsutil cp gs://kubernetes-release/release/v1.29.1/bin/linux/amd64/kubectl ./
 ```
 
 ```
@@ -103,7 +121,7 @@ sudo mv kubectl /usr/local/bin/
 
 ### Verification
 
-Verify `kubectl` version 1.29.0 or higher is installed:
+Verify `kubectl` version 1.29.1 or higher is installed:
 
 ```
 kubectl version --client
@@ -112,7 +130,8 @@ kubectl version --client
 > output
 
 ```
-Client Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.0", GitCommit:"cb303e613a121a29364f75cc67d3d580833a7479", GitTreeState:"clean", BuildDate:"2021-04-08T16:31:21Z", GoVersion:"go1.16.1", Compiler:"gc", Platform:"linux/amd64"}
+Client Version: v1.29.1
+Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
 ```
 
 Next: [Provisioning Compute Resources](03-compute-resources.md)
